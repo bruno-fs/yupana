@@ -17,9 +17,7 @@ Full documentation is available through [readthedocs](https://yupana.readthedocs
 Yupana is a service that works with the Insights Platform services.  It's primary purpose is to receive bulk uploads of hosts.  A client will create a specially crafted tarball and send the file to the Insights Ingress service.  The Ingress service will notify yupana via Kafka that a tarball has arrived for processing. Yupana downloads the tarball, performs top level validation, and sends the host JSON to the Insight's Host Based Inventory service.  Yupana does not validate the JSON of a host. The host based inventory service will not notify yupana of validation errors.
 
 # <a name="development"></a> Development
-At this time the make file commands only work on a MacOS.  If you develop on something besides MacOS, you will need to bring up the Ingres, host based inventory, and dependent services manually.  Information for these services can be found at https://github.com/RedHatInsights/insights-ingress-go/ and https://github.com/RedHatInsights/insights-host-inventory/.  Follow their README for instructions.
-
-## MacOS Setup
+Yupana development also depends on Ingress and Host Based Inventory. Information for these services can be found at https://github.com/RedHatInsights/insights-ingress-go/ and https://github.com/RedHatInsights/insights-host-inventory/.
 
 ### Obtain source for local projects
 To get started developing against Yupana first clone a local copy of the git repository.
