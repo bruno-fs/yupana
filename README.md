@@ -23,7 +23,6 @@ Yupana development also depends on Ingress and Host Based Inventory. Information
 To get started developing against Yupana first clone a local copy of the git repository.
 ```
 git clone https://github.com/quipucords/yupana
-git clone https://github.com/RedHatInsights/insights-ingress-go
 git clone https://github.com/RedHatInsights/insights-host-inventory.git
 ```
 
@@ -83,6 +82,10 @@ insightsingressgo_kafka_1
 insightsingressgo_zookeeper_1
 insightsingressgo_minio_1
 ```
+
+### Prepare Minio to receive data
+
+Open http://localhost:9001 and login with minio-user/minio-password. Then create a bucket named "insights-upload-perma".
 
 ### Sending data to local yupana
 To send the sample data, run the following commands:
