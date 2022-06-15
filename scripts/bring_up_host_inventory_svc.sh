@@ -7,4 +7,4 @@ cd ../../insights-host-inventory/
 
 pipenv install --dev
 pipenv run python manage.py db upgrade
-pipenv run python run_gunicorn.py
+pipenv run make run_inv_mq_service
