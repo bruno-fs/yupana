@@ -50,3 +50,10 @@ services:
       - INGRESS_MINIOENDPOINT=minio:9000
     depends_on:
        - kafka
+
+  ingress_wrapper:
+    build: .
+    ports:
+      - 5000:5000
+    environment:
+      - INGRESS_URL=http://ingress:3000
