@@ -177,6 +177,7 @@ create-report:
 local-dev-up:
 	./scripts/bring_up_all.sh
 	clear
+	$(MAKE) local-dev-attach
 
 local-dev-attach:
 	byobu attach-session -t yupana-stack
