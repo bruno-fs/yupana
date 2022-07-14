@@ -2,6 +2,7 @@ import json
 import os
 from base64 import b64encode
 from urllib.parse import urljoin
+from uuid import uuid4
 
 import requests
 from flask import Flask
@@ -10,9 +11,11 @@ from flask import request as flask_request
 
 DEFAULT_RH_IDENTITY = {
     "identity": {
-        "account_number": "0000001",
+        "account_number": "00001",
+        "auth_type": "cert-auth",
+        "internal": {"org_id": "00001"},
+        "system": {"cert_type": "system", "cn": str(uuid4())},
         "type": "System",
-        "internal": {"org_id": "000001"},
     }
 }
 DEFAULT_RH_REQUEST_ID = "test"
@@ -28,7 +31,7 @@ def ingress_wrapper():
     app.logger.info("Preparing request for ingress...")
     headers = _prepare_headers(flask_request.headers)
     files = _convert_flask_files_to_requests_files(flask_request.files)
-    
+
     app.logger.info(f"Pushing data to ingress url {INGRESS_URL}")
     ingress_response = requests.post(
         urljoin(INGRESS_URL, flask_request.path),
